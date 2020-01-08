@@ -1,6 +1,7 @@
 # Can ignore specific files
 .DS_Store
 *.conf
+*.swp
 
 # Use wildcards as well
 *~
