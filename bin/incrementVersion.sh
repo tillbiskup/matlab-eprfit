@@ -38,10 +38,13 @@ fi
 
 
 # Read version from file
-read oldversionstring <<< `tail -1 ${VERSIONFILE} | cut -d ' ' -f3`
+read oldVersionString <<< `tail -1 ${VERSIONFILE} |cut -d ' ' -f3`
+
+# Read date from file
+read oldDateString <<< `tail -1 ${VERSIONFILE} |cut -d ' ' -f4`
 
 # Split version string
-IFS='.' read -r -a versionArray <<< "$oldversionstring"
+IFS='.' read -r -a versionArray <<< "$oldVersionString"
 
 lastPart=${versionArray[${#versionArray[@]}-1]}
 
@@ -63,10 +66,12 @@ versionArray[${#versionArray[@]}-1]=${lastPart}
 # Concatenate new version string
 newVersionString=`join_by . ${versionArray[@]}`
 
+# Create new date string
+newDateString=`date "+%d-%b-%Y"`
+
 # Write new version string to file
-echo ${oldversionstring} - ${newVersionString}
-sed -i '' -e 's/${oldversionstring}/${newVersionString}/g' ${VERSIONFILE}
-#echo ${newVersionString} > ${VERSIONFILE}
+sed -i '' -e "s/${oldVersionString}/${newVersionString}/g" ${VERSIONFILE}
+sed -i '' -e "s/${oldDateString}/${newDateString}/g" ${VERSIONFILE}
 
 if [[ ${CHECKGIT} == true ]]
 then
