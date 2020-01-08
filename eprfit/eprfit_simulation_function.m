@@ -1,15 +1,13 @@
 function result = eprfit_simulation_function(...
     x_values, variables, parameters)
 
-if ~check_input(variables, parameters)
+if ~input_is_ok(variables, parameters)
     error('Some problem with input...');
 end
 
 parameters = assign_variables_to_parameters(variables, parameters);
-parameters = assign_xvalues_to_parameters(x_values, parameters);
+parameters = assign_x_values_to_parameters(x_values, parameters);
 simulation_routine = str2func(parameters.routine);
-
-%parameters.Sys.D(1)
 
 result = simulation_routine(...
     parameters.Sys, parameters.Exp, parameters.Opt);
@@ -20,7 +18,7 @@ drawnow;
 end
 
 
-function result = check_input(variables, parameters)
+function result = input_is_ok(variables, parameters)
 
 result = true;
 
@@ -46,9 +44,9 @@ end
 end
 
 
-function parameters = assign_xvalues_to_parameters(xvalues, parameters)
+function parameters = assign_x_values_to_parameters(x_values, parameters)
 
-parameters.Exp.Range = [min(xvalues), max(xvalues)];
-parameters.Exp.nPoints = length(xvalues);
+parameters.Exp.Range = [min(x_values), max(x_values)];
+parameters.Exp.nPoints = length(x_values);
 
 end
