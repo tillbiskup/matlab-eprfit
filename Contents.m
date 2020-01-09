@@ -1,2 +1,2 @@
 % eprfit Toolbox
-% Version 0.0.1.dev5 09-Jan-2020
+% Version 0.0.1.dev6 09-Jan-2020

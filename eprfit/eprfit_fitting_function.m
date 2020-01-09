@@ -8,22 +8,28 @@ function [result, fit_results] = eprfit_fitting_function(...
 % ----------
 % x_values : vector
 %     x values
+%
 % y_values : vector
 %     experimental y values that should be fitted by the model
+%
 % variables : vector
 %     variable parameters to be fitted to the data
+%
 % simulation_parameters : struct
-%     parameters used by :func:`eprfit_simulation_function` to actually
-%     simulate the EPR spectrum
+%     full set of parameters used by :func:`eprfit_simulation_function` to
+%     actually simulate the EPR spectrum
+%
 % fit_parameters : struct
-%     ...
+%     parameters necessary for fitting, such as lower and upper boundaries
+%
 % fit_options : struct
-%     ...
+%     options set for fitting algorithm
 %
 % Returns
 % -------
 % result : vector
 %     parameters fitted
+%
 % fit_results : struct
 %     further information about the fitting
 

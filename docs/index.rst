@@ -9,7 +9,7 @@ matlab-eprfit documentation!
 ============================
 
 Welcome! This is the documentation of the eprfit toolbox for MATLAB\ |reg|.
-eprfit is a MATLAB\ |reg| toolbox for fitting EPR spectra using lsqcurvefit from the MATLAB Optimization Toolbox\ |trade| and the EPR spectral simulation capabilities of the EasySpin toolbox.
+eprfit is a MATLAB\ |reg| toolbox for fitting EPR spectra using the algorithms from the MATLAB Optimization Toolbox\ |trade| and the EPR spectral simulation capabilities of the EasySpin toolbox.
 
 .. warning::
   The eprfit toolbox is currently under active development and still considered in Alpha development state. Therefore, expect frequent changes in features and public APIs that may break your own code. Nevertheless, feedback as well as feature requests are highly welcome.
@@ -17,6 +17,11 @@ eprfit is a MATLAB\ |reg| toolbox for fitting EPR spectra using lsqcurvefit from
 
 Features
 --------
+
+  * modular
+  * focus on reproducibility
+  * simple user interface via `YAML <https://yaml.org/>`_ files
+  * extensively documented
 
 
 Requirements

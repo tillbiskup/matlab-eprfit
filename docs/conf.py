@@ -22,7 +22,7 @@ copyright = '2020, Till Biskup'
 author = 'Till Biskup'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1.dev5'
+release = ''
 
 
 # -- General configuration ---------------------------------------------------
