@@ -1,6 +1,31 @@
 function [result, fit_results] = eprfit_fitting_function(...
     x_values, y_values, variables, simulation_parameters, fit_parameters, ...
     fit_options)
+% Fit epr spectrum using :func:`eprfit_simulation_function` and a
+% gradient-based approach.
+%
+% Parameters
+% ----------
+% x_values : vector
+%     x values
+% y_values : vector
+%     experimental y values that should be fitted by the model
+% variables : vector
+%     variable parameters to be fitted to the data
+% simulation_parameters : struct
+%     parameters used by :func:`eprfit_simulation_function` to actually
+%     simulate the EPR spectrum
+% fit_parameters : struct
+%     ...
+% fit_options : struct
+%     ...
+%
+% Returns
+% -------
+% result : vector
+%     parameters fitted
+% fit_results : struct
+%     further information about the fitting
 
 simulation_function = @(variables, x_values)eprfit_simulation_function(...
     x_values, variables, simulation_parameters);

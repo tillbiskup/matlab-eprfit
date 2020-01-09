@@ -1,5 +1,29 @@
 function result = eprfit_simulation_function(...
     x_values, variables, parameters)
+% Calculate EPR spectrum using EasySpin routines and providing an interface
+% compatible to MATLAB Optimization Toolbox (TM) lsqcurvefit and alike.
+% 
+% Usage::
+%
+%   result = eprfit_simulation_function(x_values, variables, parameters)
+%
+% Parameters
+% ----------
+% x_values : vector
+%     x values to calculate function values :math:`y = f(x)` for
+%
+% variables : vector
+%     variable parameters returned from optimisation routine
+%
+% parameters : struct
+%    full parameter set necessary for simulating the EPR spectrum
+%    The parameters contained in the variables vector will be used 
+%    accordingly.
+%
+% Returns
+% -------
+% result : vector
+%     function values :math:`y = f(x)`
 
 if ~input_is_ok(variables, parameters)
     error('Some problem with input...');
