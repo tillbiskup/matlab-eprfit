@@ -1,5 +1,5 @@
 function result = eprfit_simulation_function(...
-    x_values, variables, parameters)
+    x_values, variables, parameters, line_handle)
 % Calculate EPR spectrum using EasySpin routines and providing an interface
 % compatible to MATLAB Optimization Toolbox (TM) lsqcurvefit and alike.
 % 
@@ -7,24 +7,33 @@ function result = eprfit_simulation_function(...
 %
 %   result = eprfit_simulation_function(x_values, variables, parameters)
 %
+%   result = eprfit_simulation_function(x_values, variables, parameters,...
+%                                       line_handle)
+%
 % Parameters
 % ----------
 % x_values : vector
 %     x values to calculate function values :math:`y = f(x)` for
 %
 % variables : vector
-%     variable parameters returned from optimisation routine
+%     Variable parameters returned from optimisation routine
 %
 % parameters : struct
-%    full parameter set necessary for simulating the EPR spectrum
+%    Full parameter set necessary for simulating the EPR spectrum
 %    The parameters contained in the variables vector will be used 
 %    accordingly.
+%
+% line_handle : handle
+%    Optional parameter with handle for graphics object (line) whose ydata
+%    should be replaced by the current simulation results. Plotting is only
+%    done in case this parameter is supplied.
 %
 % Returns
 % -------
 % result : vector
 %     function values :math:`y = f(x)`
 
+% TODO: Perform input check on a higher level for speeding up
 if ~input_is_ok(variables, parameters)
     error('Some problem with input...');
 end
@@ -36,8 +45,11 @@ simulation_routine = str2func(parameters.routine);
 result = simulation_routine(...
     parameters.Sys, parameters.Exp, parameters.Opt);
 
-plot(x_values, result);
-drawnow;
+% In case fourth parameter is supplied, handled as line handle
+if nargin > 3
+    set(line_handle, 'YData', result);
+    drawnow;
+end
 
 end
 

@@ -33,12 +33,16 @@ function [result, fit_results] = eprfit_fitting_function(...
 % fit_results : struct
 %     further information about the fitting
 
-simulation_function = @(variables, x_values)eprfit_simulation_function(...
+result = eprfit_simulation_function(...
     x_values, variables, simulation_parameters);
 
-result = simulation_function(variables, x_values);
+line_handles = plot(x_values, y_values, x_values, result);
+legend({'data', 'simulation'});
+drawnow;
+simulation_line_handle = line_handles(2);
 
-plot(x_values, result)
+simulation_function = @(variables, x_values)eprfit_simulation_function(...
+    x_values, variables, simulation_parameters, simulation_line_handle);
 
 [result, resnorm, residual, exitflag, output, lambda, jacobian] = ...
     lsqcurvefit(simulation_function, variables, x_values, y_values, ...
