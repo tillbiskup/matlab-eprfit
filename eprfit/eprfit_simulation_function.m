@@ -1,7 +1,7 @@
 function result = eprfit_simulation_function(...
     x_values, variables, parameters, line_handle)
 % Calculate EPR spectrum using EasySpin routines and providing an interface
-% compatible to MATLAB Optimization Toolbox (TM) lsqcurvefit and alike.
+% compatible to MATLAB Optimization Toolbox\ |trade| lsqcurvefit and alike.
 % 
 % Usage::
 %
