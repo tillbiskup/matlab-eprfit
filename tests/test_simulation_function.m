@@ -1,4 +1,4 @@
-function test_eprfit_simulation_function()
+function test_simulation_function()
 
 x_values = linspace(340, 350, 2^10);
 
@@ -13,7 +13,7 @@ parameters = struct(...
     );
 parameters.vary = {'Sys.g'};
 
-simulation_function = @(x_values)eprfit_simulation_function(...
+simulation_function = @(x_values)eprfit.simulation_function(...
     x_values, variables, parameters);
 
 result = simulation_function(x_values);

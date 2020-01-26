@@ -1,4 +1,4 @@
-function test_eprfit_fitting_function()
+function test_fitting_function()
 
 %x_values = linspace(280, 410, 326);
 x_values = linspace(340, 350, 2^10);
@@ -15,7 +15,7 @@ simulation_parameters = struct(...
     );
 simulation_parameters.vary = {'Sys.g'};
 
-result = eprfit_simulation_function(...
+result = eprfit.simulation_function(...
     x_values, variables, simulation_parameters);
 result_noisy = addnoise(result, 50);
 
@@ -37,7 +37,7 @@ fit_options.Display = 'iter';
 %variables = [950];
 variables = [2.0041];
 
-[result_pars, fit_results] = eprfit_fitting_function(...
+[result_pars, fit_results] = eprfit.fitting_function(...
     x_values, result_noisy, variables, ...
     simulation_parameters, fit_parameters, fit_options);
 
