@@ -5,9 +5,9 @@ function result = simulation_function(...
 % 
 % Usage::
 %
-%   result = eprfit_simulation_function(x_values, variables, parameters)
+%   result = eprfit.simulation_function(x_values, variables, parameters)
 %
-%   result = eprfit_simulation_function(x_values, variables, parameters,...
+%   result = eprfit-simulation_function(x_values, variables, parameters,...
 %                                       line_handle)
 %
 % Parameters

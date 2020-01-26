@@ -1,7 +1,7 @@
 function [result, fit_results] = fitting_function(...
     x_values, y_values, variables, simulation_parameters, fit_parameters, ...
     fit_options)
-% Fit epr spectrum using :func:`eprfit_simulation_function` and a
+% Fit epr spectrum using :func:`simulation_function` and a
 % gradient-based approach.
 %
 % Parameters
@@ -16,7 +16,7 @@ function [result, fit_results] = fitting_function(...
 %     variable parameters to be fitted to the data
 %
 % simulation_parameters : struct
-%     full set of parameters used by :func:`eprfit_simulation_function` to
+%     full set of parameters used by :func:`simulation_function` to
 %     actually simulate the EPR spectrum
 %
 % fit_parameters : struct
