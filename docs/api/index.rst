@@ -9,6 +9,6 @@ This is the definite source of information for developers, besides having a look
    :maxdepth: 1
 
 
-.. automodule:: eprfit
+.. automodule:: +eprfit
     :members:
 
