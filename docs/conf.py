@@ -76,6 +76,7 @@ autodoc_default_options = {
 matlab_src_dir = os.path.abspath(os.path.join('..'))
 matlab_src_encoding = 'utf-8'
 primary_domain = 'mat'
+matlab_keep_package_prefix = False
 
 # -- Options for HTML output -------------------------------------------------
 

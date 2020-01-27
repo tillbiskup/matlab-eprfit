@@ -38,7 +38,7 @@ Installation
 Install the package by adding the path to MATLAB\ |reg|::
 
     cd path/to/files
-    addpath(genpath('eprfit'))
+    addpath('.')
 
 
 .. toctree::
